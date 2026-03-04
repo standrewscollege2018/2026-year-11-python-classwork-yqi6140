@@ -3,7 +3,10 @@ number = random.randint(0,1000)
 good = 0
 bad = 0
 all = 0
-asnwer = int(input("guess the number ranges from 0 to 1000"))
+try:
+    asnwer = int(input("guess the number ranges from 0 to 1000"))
+except ValueError:
+    print("not acceptable")
 while (asnwer != number):
     if (asnwer < number):
         print("too low")
@@ -11,7 +14,10 @@ while (asnwer != number):
     if (asnwer > number):
         print("too high")
         bad += 1
-    asnwer = int(input("guess the number ranges from 0 to 1000"))
+    try:
+        asnwer = int(input("guess the number ranges from 0 to 1000"))
+    except ValueError:
+        print("not acceptable")
 if (asnwer == number):
     print("you got it")
     good += 20
