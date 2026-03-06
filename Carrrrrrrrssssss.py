@@ -53,7 +53,23 @@ while True in car_availablely_list:
     else:
         print(f"you have chosen {car_list[answer - 1]}")
         car_availablely_list[answer - 1] = False
+        get_selection = True
+        while get_selection  == True:
+            try:
+                new = (input("your name."))
+                if new.strip() == "":
+                    print("you cann't just put nothing")
+                else:
+                    get_selection = False
+            except ValueError:
+                print("not able")
+        car_names_list[answer - 1] = new
     print(" ")
-
+    
 print("ending simulation")
-
+for check in range(0,len(car_list)):
+        if car_names_list[check] != "none":
+            print(f"{check + 1}. {car_list[check]} it has {car_seats_list[check]} seats and has been taken by {car_names_list[check]}")
+        else:
+            print(f"{check + 1}. {car_list[check]} it has {car_seats_list[check]} seats and has not been taken")
+        check += 1
